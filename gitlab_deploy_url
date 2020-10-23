@@ -1,0 +1,7 @@
+#!/bin/bash
+
+repo=$1
+user=$2
+pass=$3
+
+echo https://$user:$pass@gitlab.com/evil-mad/$repo
