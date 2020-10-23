@@ -3,11 +3,6 @@
 # if any one of the listed files exists, return error; else return success
 # usage:
 #   ls_false file1 file2 file3 ...
-#
-# Works in the gitlab pipelines:
-#     curl https://gist.githubusercontent.com/shoshber/237a28c671611538fab95974c3089f7c/raw/b165b65bc563ebf1cacab37731b624609cd716ee/ls_false > ls_false
-#     chmod u+x ls_false
-#     ./ls_false file1 file2 file3
 
 while [ "$1" != "" ]; do
   ls $1 2> /dev/null 1> /dev/null
