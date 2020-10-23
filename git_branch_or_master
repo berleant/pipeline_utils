@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Usage:
+#   git_branch_or_master remote_url branch_name
+# If branch_name is a branch on the repo pointed to by remote_url, print that branch_name; else print default_branch.
+# If default_branch isn't specified, return master
+
+# Works in the gitlab pipelines:
+#     curl https://gist.githubusercontent.com/shoshber/.../raw/.../git_branch_or_master > git_branch_or_master
+#     chmod u+x git_branch_or_master
+#     ./git_branch_or_master https://github.com/user/reponame branchname
+
+url=$1
+branch=$2
+if [ $(git ls-remote $url $branch | wc -l ) == 1 ] ; then
+  echo $branch
+else
+  echo "master"
+fi
