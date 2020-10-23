@@ -3,12 +3,6 @@
 # Parse `coverage report` from python's coverage module and check it against a threshold
 # usage:
 #   py_coverage_threshold 20
-#
-# Works in the gitlab pipelines:
-#     coverage run -m unittest discover
-#     curl https://gist.githubusercontent.com/shoshber/4b6a7f1183d94a51b4b9f22ae2f86c4f/raw/93e5686cc4565c140bf7b16bbd5681f30affde85/py_coverage_threshold > check_cov
-#     chmod u+x check_cov
-#     ./check_cov 20
 
 threshold="$1"
 coverage_percent="$(coverage report | grep TOTAL | sed 's/^.*\([0-9][0-9]\)\%/\1/')"
